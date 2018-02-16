@@ -16,7 +16,7 @@ my_hash.each do |drink|
   drink_name = drink["strDrink"]
   drink_image = "http://"+drink["strDrinkThumb"]
   drink_id = drink["idDrink"]
-  c = Cocktail.create(name: drink_name, image: drink_image)
+  c = Cocktail.create(name: drink_name, photo: drink_image)
 
 
   json = open("http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=#{drink_id}").read
