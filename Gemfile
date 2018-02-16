@@ -39,6 +39,9 @@ gem 'autoprefixer-rails'
 gem 'bootstrap-sass' # Bootstrap v3
 gem 'font-awesome-sass'
 gem 'figaro'
+gem 'cloudinary'
+
+gem 'carrierwave', '~> 1.2'
 
 
 
