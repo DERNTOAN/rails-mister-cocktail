@@ -3,10 +3,13 @@
   width: 300px;
   height: 200px;
   background-position: center;
+  border-radius: 5px;
+
 }
 
 .card-category h3 {
   color: white;
+  padding: 10px
 }
 
 .cocktail-card a:hover {

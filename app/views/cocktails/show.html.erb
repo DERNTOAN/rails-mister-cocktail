@@ -1,13 +1,26 @@
-<h1><%= @cocktail.name %></h1>
-
-<h3>Ingredients</h3>
-
-<ul>
-  <% @cocktail.doses.each do |dose| %>
-    <li> <%= dose.description %> of <%= dose.ingredient.name %> - <%= link_to "Delete", dose_path(dose), method: :delete %>
-      </li>
+<div class="cocktail-wrapper">
+  <h1><%= @cocktail.name %></h1>
+  <div class="card">
+    <div class="card-description">
+      <h3>Ingredients</h3>
+      <ul>
+        <% @cocktail.doses.each do |dose| %>
+        <li> <%= dose.description %> of <%= dose.ingredient.name %> - <%= link_to "Delete", dose_path(dose), method: :delete %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <% if @cocktail.image %>
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path @cocktail.image, height: 200, width: 300 %>)">
+  </div>
+  <% else %>
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path @cocktail.photo, height: 300, width: 400 %>)">
+  </div>
   <% end %>
-</ul>
-<%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail), class: "btn-treehouse"%>
+  <div>
+    <%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail), class: "btn-treehouse"%>
 
-<%= link_to "Back", cocktails_path, class: "btn-treehouse" %>
+    <%= link_to "Back", cocktails_path, class: "btn-treehouse" %>
+  </div>
+</div>
