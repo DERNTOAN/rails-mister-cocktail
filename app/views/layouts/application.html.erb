@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RailsMisterCocktail</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>RailsMisterCocktail</title>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
+<body>
+  <div class="navbar-wagon">
+    <!-- Logo -->
+    <%=  image_tag 'logo.png', class: "navbar-wagon-brand" %>
+<!--     <a href="/" class="navbar-wagon-brand">
+      <img src="logo.png" alt="logo">
+    </a>
+ -->
+    <!-- Right Navigation -->
+    <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+      <a href="/cocktails" class="navbar-wagon-item navbar-wagon-link">Cocktails</a>
+      <a href="/cocktails/new" class="navbar-wagon-item navbar-wagon-link">New</a>
+      <!-- <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a> -->
+    </div>
+  </div>
+    <div>
+      <%= yield %>
+    </div>
   </body>
-</html>
+  </html>

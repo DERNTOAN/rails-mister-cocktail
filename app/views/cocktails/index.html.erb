@@ -1,7 +1,24 @@
-<ul>
-  <% @cocktails.each do |cocktail| %>
-    <li><h2><%= link_to cocktail[:name], cocktail_path(cocktail) %></h2></li>
-<% end %>
-</ul>
+  <div class="text-center">
+    <h1>Cocktails</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        <p><%= link_to "Add a new Cocktail", new_cocktail_path, class: "btn-treehouse" %></p>
+      </div>
+    </div>
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-4 col-lg-4 cocktail-card">
+        <%= link_to cocktail_path(cocktail) do %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cocktail.image %>)">
+          <div class="card-category">
+            <h3><%= cocktail[:name] %></h3>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
 
-<%= link_to "Add a new Cocktail", new_cocktail_path %>
+  </div>

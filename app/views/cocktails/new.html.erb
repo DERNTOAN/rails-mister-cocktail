@@ -1,5 +1,7 @@
 
-<%= simple_form_for @cocktail do |f| %>
+<div class="form-group">
+  <%= simple_form_for @cocktail do |f| %>
   <%= f.input :name %>
-  <%= f.button :submit %>
-<% end %>
+  <%= f.button :submit, class: "btn-treehouse text-center" %>
+  <% end %>
+</div>

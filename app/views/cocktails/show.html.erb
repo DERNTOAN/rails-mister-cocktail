@@ -3,10 +3,11 @@
 <h3>Ingredients</h3>
 
 <ul>
-  <% @cocktail.ingredient_ids.each do |ingredient_id| %>
-     <% ingredient = Ingredient.find(ingredient_id) %>
-     <li> <%= ingredient.doses[0].description %> - <%= ingredient.name %> </li>
+  <% @cocktail.doses.each do |dose| %>
+    <li> <%= dose.description %> of <%= dose.ingredient.name %> - <%= link_to "Delete", dose_path(dose), method: :delete %>
+      </li>
   <% end %>
 </ul>
+<%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail), class: "btn-treehouse"%>
 
-<%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail) %>
+<%= link_to "Back", cocktails_path, class: "btn-treehouse" %>
