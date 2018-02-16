@@ -11,9 +11,11 @@
       </ul>
     </div>
   </div>
-  <% if @cocktail.image %>
+  <% if @cocktail.image == nil %>
+  <% elsif @cocktail.image %>
   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path @cocktail.image, height: 200, width: 300 %>)">
   </div>
+  <% elsif @cocktail.photo == nil %>
   <% else %>
   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path @cocktail.photo, height: 300, width: 400 %>)">
   </div>
