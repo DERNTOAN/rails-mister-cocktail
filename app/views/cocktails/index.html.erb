@@ -9,17 +9,25 @@
     </div>
     <div class="row">
       <% @cocktails.each do |cocktail| %>
-      <div class="col-xs-12 col-sm-4 col-lg-4 cocktail-card">
-        <%= link_to cocktail_path(cocktail) do %>
-        <% if cocktail.photo %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>)">
+        <div class="col-xs-12 col-sm-4 col-lg-4 cocktail-card">
+          <% if cocktail.photo == nil %>
+            <%= link_to cocktail_path(cocktail) do %>
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2))">
+                <div class="card-category">
+                  <h3><%= cocktail[:name] %></h3>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <%= link_to cocktail_path(cocktail) do %>
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+              <div class="card-category">
+                <h3><%= cocktail[:name] %></h3>
+              </div>
+            </div>
+            <% end %>
           <% end %>
-          <div class="card-category">
-            <h3><%= cocktail[:name] %></h3>
-          </div>
         </div>
-        <% end %>
-      </div>
       <% end %>
     </div>
 

@@ -12,12 +12,12 @@ Cocktail.destroy_all
 
 json = open("http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka").read
 my_hash = JSON.parse(json)["drinks"]
-my_hash.each do |drink|
+my_hash.first(10).each do |drink|
   drink_name = drink["strDrink"]
   drink_image = "http://"+drink["strDrinkThumb"]
   drink_id = drink["idDrink"]
-  c = Cocktail.create(name: drink_name, photo: drink_image)
-
+  c = Cocktail.new(name: drink_name)
+  c.remote_photo_url = drink_image
 
   json = open("http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=#{drink_id}").read
   my_drink = JSON.parse(json)["drinks"][0]
@@ -26,12 +26,12 @@ my_hash.each do |drink|
 
 
   c.save
-
+  c
   for i in (1..15).to_a do
     ingred = my_drink["strIngredient#{i}"]
     des = my_drink["strMeasure#{i}"]
     if ingred != "" && ingred != nil
-      p ingred
+      ingred
       # p des
       unless i = Ingredient.find_by_name(ingred)
         i = Ingredient.create(name: ingred)
@@ -39,7 +39,7 @@ my_hash.each do |drink|
       end
       data = {cocktail_id: c.id, ingredient_id: i.id, description: des}
       d = Dose.create(data)
-      p d.save
+      d.save
     end
   end
 end
