@@ -10,7 +10,7 @@ require 'open-uri'
 
 Cocktail.destroy_all
 
-json = open("http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin").read
+json = open("http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka").read
 my_hash = JSON.parse(json)["drinks"]
 my_hash.each do |drink|
   drink_name = drink["strDrink"]
