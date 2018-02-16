@@ -13,21 +13,23 @@
 <body>
   <div class="navbar-wagon">
     <!-- Logo -->
-    <%=  image_tag 'logo.png', class: "navbar-wagon-brand" %>
+    <%= link_to root_path do %>
+      <%=  image_tag 'logo.png', class: "navbar-wagon-brand" %>
+    <% end %>
 <!--     <a href="/" class="navbar-wagon-brand">
       <img src="logo.png" alt="logo">
     </a>
- -->
-    <!-- Right Navigation -->
-    <div class="navbar-wagon-right hidden-xs hidden-sm">
+  -->
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-      <a href="/cocktails" class="navbar-wagon-item navbar-wagon-link">Cocktails</a>
-      <a href="/cocktails/new" class="navbar-wagon-item navbar-wagon-link">New</a>
-      <!-- <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a> -->
-    </div>
+    <a href="/cocktails" class="navbar-wagon-item navbar-wagon-link">Cocktails</a>
+    <a href="/cocktails/new" class="navbar-wagon-item navbar-wagon-link">New</a>
+    <!-- <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a> -->
   </div>
-    <div>
-      <%= yield %>
-    </div>
-  </body>
-  </html>
+</div>
+<div>
+  <%= yield %>
+</div>
+</body>
+</html>
